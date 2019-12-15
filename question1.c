@@ -5,13 +5,13 @@
 int main(){
 
 
-    int a[] = {2,1,0};
+    int a[] = {5,9,4,2,1};
     
     int i = 2;
     int* arr = a;
 
-    insertion_sort(arr,i);
-    for (int j = 0; j < 3; j++)
+    insertion_sort(arr,5);
+    for (int j = 0; j < 5; j++)
     {
         printf("num at place %d is %d",j,a[j]);
         printf("\n");
