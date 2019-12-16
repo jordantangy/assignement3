@@ -5,13 +5,13 @@
 int main(){
 
 
-    int a[] = {14,2,54,6};
+    int a[] = {5,2,45,30,3,8,6};
     
     int i = 2;
     int* arr = a;
 
-    shift_element(arr,2);
-    for (int j = 0; j < 4; j++)
+    insertion_sort(arr,7);
+    for (int j = 0; j < 7; j++)
     {
         printf("num at place %d is %d",j,a[j]);
         printf("\n");
@@ -30,17 +30,23 @@ void shift_element(int* arr, int i){
 
 
 void insertion_sort (int* arr , int len){
-    for (int i = 0 ; i < len ; i++ ,){
-        while(*(arr+j) > *(arr+i)){
-            shift_element(arr,j);
-             for (int k = 0 ; k < len ; k++){
-                if  (*(arr+k) > *(arr+k+1)) {
-					int temp2 = *(arr+k+1);
-					*(arr+k+1) = *(arr+k);
-					*(arr+k) = temp2;
-				}
+    for (size_t i = 0; i < len-1; i++) {
+        if (*(arr+i) > *(arr+i+1)){
+            int* temp = arr+i;
+            int toMove = 1;
+            for (int j = i-1; j >= 0; j--){
+                if (*(arr+j) > *(arr+i+1)){
+                   toMove++;
+                   temp--;
+                }
+                else{
+                    shift_element(temp, toMove);
+                }
             }
-        }		
+            if (temp == arr){
+                shift_element(temp, toMove);
+            }
+        }
     }
 }
 
