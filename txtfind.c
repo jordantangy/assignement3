@@ -1,19 +1,25 @@
 #include <stdio.h>
 #define LINE 256
+#define WORD 30
 
-int main(){
 
-    char c[] = "Helloo";
-    func(c);
-    
-    
-    
-    
+int getline(char s[]){
+    int counter = 0;
+    while (*s != '\n'){
+        counter++;
+        s++;
+    }
+    counter++;
+    return counter;
 }
 
-void func(char s[]){
 
-     int size = sizeof(s);
-     printf("the size is %d", size );
-     
+int getword(char w[]){
+    int counter = 0;
+    while (*w != '\n' && *w != '\t' && *w != ' '){
+        counter++;
+        w++;
+    }
+    counter++;
+    return counter;
 }

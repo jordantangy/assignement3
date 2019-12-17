@@ -15,7 +15,7 @@ int main(){
     insertion_sort(arr, num);
     for (size_t i = 0; i < len; i++){
         if (i == length){
-            printf("%d\n", *(arr+i)); 
+            printf("%d", *(arr+i)); 
         }
         else{
             printf("%d,", *(arr+i));
