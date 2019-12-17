@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include "isort.c"
 
+
 #define len 50
 #define length 49
 
@@ -11,7 +12,7 @@ int main(){
     for (size_t i = 0; i < len; i++){
         scanf("%d", arr + i);
     }
-    void insertion_sort(arr, num);
+    insertion_sort(arr, num);
     for (size_t i = 0; i < len; i++){
         if (i == length){
             printf("%d\n", *(arr+i)); 
