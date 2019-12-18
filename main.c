@@ -27,5 +27,5 @@ int main(){
 
     char *c = "aba";
     char *f = "jjhabad";
-    printf("the result %d",substring(*f,*c));
+    printf("the result %d\n",substring(f,c));
 }

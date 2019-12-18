@@ -47,6 +47,9 @@ int substring( char * str1, char * str2){
                 }
             }
         }
+        if (flag){
+            return flag;
+        }
         str1++;
     }
     return flag;
