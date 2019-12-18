@@ -24,25 +24,30 @@ int getword(char w[]){
 
 
 int substring( char * str1, char * str2){
-int d_len = strlen(d);
-int c_len = strlen(c);
-
-if(c_len > d_len){
-    return 5;
-}
-
-else {
-    char f[c_len];
-    int res = 10;
-    for (int i = 0; i < d_len ; i++){
-        for (int j = 0 , k = i; j < c_len  ; j++ , k++)
-            {
-                f[j] = d[k];
+    int str1Len = getword(str1);
+    int str2Len = getword(str2);
+    if(str1Len < str2Len){
+        return 0;
+    }
+    int dif = str1Len - str2Len;
+    int flag = 0;
+    for (size_t i = 0; i <= dif ; i++){
+        if (*str1 == *str2){
+            char * str1p = str1 + 1;
+            char * str2p = str2 + 1;
+            for (size_t i = 1; i < str2Len; i++){
+                if (*str1p == *str2p){
+                    flag = 1;
+                    str1p++;
+                    str2p++;
+                }
+                else{
+                    flag = 0;
+                    break;
+                }
             }
-            res = strcmp(f,c);
-            if(res == 0){
-                break;
-            }
-            break;
-     } 
+        }
+        str1++;
+    }
+    return flag;
 }
