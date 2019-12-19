@@ -23,7 +23,7 @@ int getword(char w[]){
 }
 
 
-int substring( char * str1, char * str2){
+int substring( char * str1, char * str2){    
     int str1Len = getword(str1);
     int str2Len = getword(str2);
     if(str1Len < str2Len){
@@ -35,7 +35,7 @@ int substring( char * str1, char * str2){
         if (*str1 == *str2){
             char * str1p = str1 + 1;
             char * str2p = str2 + 1;
-            for (size_t i = 1; i < str2Len; i++){
+            for (size_t j = 1; j < str2Len; j++){
                 if (*str1p == *str2p){
                     flag = 1;
                     str1p++;
@@ -53,4 +53,8 @@ int substring( char * str1, char * str2){
         str1++;
     }
     return flag;
+}
+
+int similar (char *s, char *t, int n){
+
 }
