@@ -55,6 +55,22 @@ int substring( char * str1, char * str2){
     return flag;
 }
 
-int similar (char *s, char *t, int n){
 
+int similar (char *s, char *t, int n){
+    int sLen = getword(s);
+    int tLen = getword(t);
+    int counter = 0;
+    for (size_t i = 0; i <= sLen &&  i <= tLen; i++) {
+        if(*s == *t){
+            s++;
+            t++;
+        }
+        else{
+            s++;
+        }
+    }
+    if (counter > n){
+        return 1;
+    }
+    return 0;
 }
