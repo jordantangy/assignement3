@@ -70,7 +70,12 @@ int similar (char *s, char *t, int n){
         }
     }
     if (counter > n){
-        return 1;
+        return 0;
     }
-    return 0;
+    return 1;
+}
+
+
+void print_lines(char * str){
+
 }
