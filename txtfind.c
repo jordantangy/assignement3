@@ -66,6 +66,7 @@ int similar (char *s, char *t, int n){
             t++;
         }
         else{
+            counter++;
             s++;
         }
     }
@@ -77,5 +78,46 @@ int similar (char *s, char *t, int n){
 
 
 void print_lines(char * str){
+    char txt[LINE] = {0};
+    char *txtP = txt;
+    int toContinue = 1;
+    while(toContinue){
+        while(1){
+            scanf("%c",txtP);
+            if (*txtP == '\n') {
+                *(txtP + 1) = '\n';
+                txtP = txt;
+                break;
+            }
+            txtP++;
+        }
+        while (*txtP != '\n'){
+            int wordLength = getword(txtP)+1;
+            char word [WORD] = {0};
+            char *wordP = word;
+            for (size_t i = 0; i < wordLength; i++) {
+                *wordP = *txtP;
+                wordP++;
+                txtP++;
+            }
+            wordP = word;
+            if (substring(word,str)){
+                printf("%s", txt);
+                txtP = txt;
+                break;
+            }
+        }
 
+        for (size_t i = 0; i < LINE; i++) {
+            if (*txtP == '\n') {
+                break;
+            }
+            if (*txtP == '\0'){
+                toContinue = 0;
+                break;
+            }
+            txtP++;
+        }
+        txtP = txt;
+    }
 }

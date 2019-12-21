@@ -24,8 +24,5 @@ int main(){
     // }
     // return 0;
 
-
-    char *c = "bab\n";
-    char *f = "jjhabab\n";
-    printf("the result %d\n",substring(f,c));
+    print_lines("cat\n");
 }
