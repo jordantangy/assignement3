@@ -56,9 +56,11 @@ int substring( char * str1, char * str2){
 }
 
 
+
+
+
 int similar (char *s, char *t, int n){
     int sLen = getword(s);
-    int tLen = getword(t);
     int counter = 0;
     for (size_t i = 0; i <= sLen; i++) {
         if(*s == *t){
@@ -85,14 +87,17 @@ void print_lines(char * str){
         while(1){
             scanf("%c",txtP);
             if (*txtP == '\n') {
-                *(txtP + 1) = '\n';
                 txtP = txt;
                 break;
             }
             txtP++;
         }
+        if(*(txt + 1)== '\0'){
+            toContinue = 0;
+            break;
+        }
         while (*txtP != '\n'){
-            int wordLength = getword(txtP)+1;
+            int wordLength = getword(txtP);
             char word [WORD] = {0};
             char *wordP = word;
             for (size_t i = 0; i < wordLength; i++) {
@@ -100,24 +105,21 @@ void print_lines(char * str){
                 wordP++;
                 txtP++;
             }
+            *wordP = ' ';
             wordP = word;
+            if (*txtP == ' ' || *txtP == '\t')
+            txtP++;
             if (substring(word,str)){
                 printf("%s", txt);
                 txtP = txt;
                 break;
             }
         }
-        for (size_t i = 0; i < LINE; i++) {
-            if (*txtP == '\n') {
-                break;
-            }
-            if (*txtP == '\0'){
-                toContinue = 0;
-                break;
-            }
-            txtP++;
-        }
         txtP = txt;
+        int i = 0;
+        while(i > LINE){
+            *(txt + i) = '\0';
+        }
     }
 }
 
@@ -165,9 +167,7 @@ void print_similar_words(char * str){
 }
 
 
-
-
 int main(int argc, char const *argv[]) {
-    print_similar_words("cat\n");
+    print_lines("cat\n");
     return 0;
 }
