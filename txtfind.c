@@ -107,7 +107,6 @@ void print_lines(char * str){
                 break;
             }
         }
-
         for (size_t i = 0; i < LINE; i++) {
             if (*txtP == '\n') {
                 break;
