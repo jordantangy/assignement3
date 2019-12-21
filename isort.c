@@ -1,3 +1,9 @@
+#include <stdio.h>
+
+#define len 50
+#define length 49
+
+
 void shift_element(int* arr, int i){
 
     int temp = *(arr+i);
@@ -10,8 +16,8 @@ void shift_element(int* arr, int i){
 }
 
 
-void insertion_sort (int* arr , int len){
-    for (int i = 0; i < len; i++){
+void insertion_sort (int* arr , int arrLen){
+    for (int i = 0; i < arrLen; i++){
         if(*(arr+i) > *(arr+i+1)){
             shift_element(arr, i+1);
         }
@@ -23,4 +29,23 @@ void insertion_sort (int* arr , int len){
             }
         }
     }
+}
+
+
+int main(){
+    int num = len;
+    int arr[len] = {0};
+    for (int i = 0; i < len; i++){
+        scanf("%d", arr + i);
+    }
+    insertion_sort(arr, num);
+    for (int i = 0; i < len; i++){
+        if (i == length){
+            printf("%d", *(arr+i)); 
+        }
+        else{
+            printf("%d,", *(arr+i));
+        }
+    }
+    return 0;
 }
