@@ -194,7 +194,7 @@ int main() {
             *wordP = '\n';
             break;
         }
-        *wordP++;
+        wordP++;
     }
     scanf("%c", act);
     if (*act == 'a'){
