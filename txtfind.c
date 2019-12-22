@@ -184,11 +184,24 @@ void print_similar_words(char * str){
 }
 
 
-int main(int argc, char const *argv[]) {
+int main() {
     char word[30] = {0};
-    char act = '\0';
-    char line[LINE] = {0};
-    scanf("%s", line);
-    printf("%s", line);
+    char *wordP = word;
+    char act[1] = {0};
+    while(1){
+        scanf("%c", wordP);
+        if (*wordP == ' '){
+            *wordP = '\n';
+            break;
+        }
+        *wordP++;
+    }
+    scanf("%c", act);
+    if (*act == 'a'){
+      print_lines(word);
+    }
+    if (*act == 'b'){
+        print_similar_words(word);
+    }
     return 0;
 }
