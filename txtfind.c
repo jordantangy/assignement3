@@ -83,18 +83,19 @@ void print_lines(char * str){
     char txt[LINE] = {0};
     char *txtP = txt;
     int toContinue = 1;
+    int flag;
     while(toContinue){
         while(1){
-            scanf("%c",txtP);
+            flag = scanf("%c",txtP);
+            if(flag == EOF) {
+                toContinue = 0;
+                break;
+            }
             if (*txtP == '\n') {
                 txtP = txt;
                 break;
             }
             txtP++;
-        }
-        if(*(txt + 1)== '\0'){
-            toContinue = 0;
-            break;
         }
         while (*txtP != '\n'){
             int wordLength = getword(txtP);
@@ -108,7 +109,7 @@ void print_lines(char * str){
             *wordP = ' ';
             wordP = word;
             if (*txtP == ' ' || *txtP == '\t')
-            txtP++;
+                txtP++;
             if (substring(word,str)){
                 printf("%s", txt);
                 txtP = txt;
@@ -168,6 +169,6 @@ void print_similar_words(char * str){
 
 
 int main(int argc, char const *argv[]) {
-    print_lines("cat\n");
+   print_lines("cat\n");
     return 0;
 }
