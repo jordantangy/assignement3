@@ -5,11 +5,8 @@
 
 
 void shift_element(int* arr, int i){
-
     int temp = *(arr+i);
-    
     for (int k = i ; k>0 ; k--){
-
         *(arr+k) = *(arr+k-1);
     }
     *(arr) = temp;
@@ -17,11 +14,11 @@ void shift_element(int* arr, int i){
 
 
 void insertion_sort (int* arr , int arrLen){
-    for (int i = 0; i < arrLen; i++){
+    for (int i = 0; i < arrLen-1; i++){
         if(*(arr+i) > *(arr+i+1)){
             shift_element(arr, i+1);
         }
-        for(int j=0 ; j < i ; j++){
+        for(int j = 0 ; j < i ; j++){
             if(*(arr+j) > *(arr+j+1)){
                 int temp = *(arr+j);
                 *(arr+j) = *(arr+j+1);
